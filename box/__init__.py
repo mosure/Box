@@ -1,8 +1,26 @@
-from .api import *
+import click
+from flask.cli import AppGroup
+from flask_injector import FlaskInjector
+
+from .configuration import ConfigurationModule
+from .db import DatabaseModule
+from .api import create_app
 from .auth import *
-from .db import *
 from .models import *
 from .tests import *
 
 
-create_app()
+app = create_app()
+
+# Register dependencies
+FlaskInjector(app=app, modules=[ConfigurationModule, DatabaseModule(app)])
+
+# Box CLI Setup
+user_cli = AppGroup('user')
+app.cli.add_command(user_cli)
+
+@user_cli.command('create')
+@click.argument('name')
+def create_user(name):
+    """TODO: Call `flask user create <name>` to create a user"""
+    pass

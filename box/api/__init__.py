@@ -10,7 +10,7 @@ from .v1 import register_blueprints
 from .handlers import override_handlers
 
 
-def create_app(test_config=None):
+def create_app():
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True, root_path='/box')
 

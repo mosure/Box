@@ -1,3 +1,8 @@
+
+# API
+
+## v1
+
 This folder contains our routes.
 
 `domain.com/api/v1/...`
@@ -18,3 +23,7 @@ We will call job templates blueprints
 The following need to be refined
 `/webhooks`
 `/webhooks/:wid`
+
+# Dependency Injection
+
+Use `from injector import inject` and `@inject(<param>=<DatabaseService>)` to inject a service from the database into a view.

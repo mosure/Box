@@ -3,7 +3,9 @@
 # Setup
 Run `python setup.py develop` to link your local package to source (`python setup.py install` if you are only running the application).
 
-Next, set the `FLASK_APP` environment variable (in windows run `set FLASK_APP=box`). Optionally, set development mode via `FLASK_ENV=development`.
+To setup environment variables, run `pip install -U python-dotenv` and load environment variables from `.flaskenv` and `.env` automatically.
+
+Alternatively, view required environment variables in `.flaskenv` and set them manually.
 
 To start the Flask server, run `flask run`.
 

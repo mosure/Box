@@ -7,19 +7,28 @@ from flask import (
     url_for
 )
 
+from injector import (
+    inject
+)
+
+from ...db import Jobs
+
 
 jobs_bp = Blueprint('jobs', __name__)
 
+@inject(jobs=Jobs)
 @jobs_bp.route('/', methods=['GET'])
-def get_jobs():
-    return jsonify({'jobs': []})
+def get_jobs(jobs: Jobs):
+    return jsonify({ 'jobs': [] })
 
+@inject(jobs=Jobs)
 @jobs_bp.route('/<string:job_id>', methods=['GET'])
-def get_job(job_id):
-    return jsonify({'jobs': []})
+def get_job(job_id: str, jobs: Jobs):
+    return jsonify(jobs.get(job_id))
 
+@inject(jobs=Jobs)
 @jobs_bp.route('/', methods=['POST'])
-def create_job():
+def create_job(jobs: Jobs):
     if not request.json or not 'title' in request.json:
         abort(400)
     job = {
