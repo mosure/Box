@@ -1,23 +1,18 @@
-import uuid
-
 from .role import Role
 
 from .mixins import (
-    IDableMixin,
     MetadatableMixin,
     OwnerMixin
 )
 
-class User(IDableMixin, MetadatableMixin, OwnerMixin):
-    def __init__(self, email, fname, lname, jobs, parts, pwd, role):
-        IDableMixin.__init__(self, uuid.uuid4())
+
+class User(MetadatableMixin, OwnerMixin):
+    def __init__(self, email, fname, lname, pwd, role):
         MetadatableMixin.__init__(self)
-        OwnerMixin.__init__(self, jobs, parts)
+        OwnerMixin.__init__(self, 'user')
 
         self.fname = fname
         self.lname = lname
         self.email = email
         self.pwd = pwd
         self.role = role
-
-        

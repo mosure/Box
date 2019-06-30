@@ -1,16 +1,13 @@
-import uuid
-
 from .mixins import (
-    IDableMixin,
     MetadatableMixin,
     OwnerMixin
 )
 
-class Organization(IDableMixin, MetadatableMixin):
-    def __init__(self, jobs, name, parts, roles, users):
-        IDableMixin.__init__(self, uuid.uuid4())
+
+class Organization(MetadatableMixin, OwnerMixin):
+    def __init__(self, name, roles, users):
         MetadatableMixin.__init__(self)
-        OwnerMixin.__init__(self, jobs, parts)
+        OwnerMixin.__init__(self, 'organization')
 
         self.roles = roles
         self.name = name
