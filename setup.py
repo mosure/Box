@@ -14,7 +14,8 @@ setup(
     install_requires=[
         'flask',
         'flask-sqlalchemy',
-        'flask-injector'
+        'flask-injector',
+        'flask-login'
     ],
     zip_safe=False
 )

@@ -24,6 +24,10 @@ The following need to be refined
 `/webhooks`
 `/webhooks/:wid`
 
+User authentication
+`/login`
+`/logout`
+
 # Dependency Injection
 
 Use `from injector import inject` and `@inject(<param>=<DatabaseService>)` to inject a service from the database into a view.

@@ -10,8 +10,10 @@ from injector import (
 from .sql import initialize_database as sql_initialize_database
 from .sql import db as sql_db
 from .sql import Jobs as sql_jobs
+from .sql import Users as sql_users
 
 from .jobs import Jobs
+from .users import Users
 
 from ..configuration import Configuration
 
@@ -36,3 +38,9 @@ class DatabaseModule(Module):
             return Jobs(sql_jobs(sql_db))
 
         return None
+
+    @singleton
+    @provides(Users)
+    def provide_users(self):
+        if self._configuration.database == 'sql':
+            return Users(sql_users(sql_db))

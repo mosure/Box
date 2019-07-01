@@ -2,6 +2,7 @@ import click
 from flask.cli import AppGroup
 from flask_injector import FlaskInjector
 
+from .auth import AuthModule
 from .configuration import ConfigurationModule
 from .db import DatabaseModule
 from .api import create_app
@@ -13,7 +14,7 @@ from .tests import *
 app = create_app()
 
 # Register dependencies
-FlaskInjector(app=app, modules=[ConfigurationModule, DatabaseModule(app)])
+FlaskInjector(app=app, modules=[AuthModule, ConfigurationModule, DatabaseModule(app)])
 
 # Box CLI Setup
 user_cli = AppGroup('user')
