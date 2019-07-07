@@ -1,7 +1,7 @@
-from ...models import User
+from ....models import User
 
 
-class Users():
+class SQLUserService():
     """SQL Implementation of box.db.users"""
 
     def __init__(self, db):

@@ -1,7 +1,7 @@
-from ...models import Job
+from ....models import Job
 
 
-class Jobs():
+class SQLJobService():
     """SQL Implementation of box.db.jobs"""
 
     def __init__(self, db):

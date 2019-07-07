@@ -9,11 +9,13 @@ from injector import (
 
 from .sql import initialize_database as sql_initialize_database
 from .sql import db as sql_db
-from .sql import Jobs as sql_jobs
-from .sql import Users as sql_users
+from .sql.services import (
+    sql_job_service,
+    sql_user_service
+)
 
-from .jobs import Jobs
-from .users import Users
+from .services.job_service import JobService
+from .services.user_service import UserService
 
 from ..configuration import Configuration
 
@@ -32,15 +34,17 @@ class DatabaseModule(Module):
             app.logger().error('DATABASE value is incorrect.')
 
     @singleton
-    @provides(Jobs)
-    def provide_jobs(self):
+    @provides(JobService)
+    def provide_job_service(self):
         if self._configuration.database == 'sql':
-            return Jobs(sql_jobs(sql_db))
+            return JobService(sql_job_service(sql_db))
 
         return None
 
     @singleton
-    @provides(Users)
-    def provide_users(self):
+    @provides(UserService)
+    def provide_user_service(self):
         if self._configuration.database == 'sql':
-            return Users(sql_users(sql_db))
+            return UserService(sql_user_service(sql_db))
+
+        return None

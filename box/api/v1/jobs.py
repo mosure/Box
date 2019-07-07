@@ -11,24 +11,24 @@ from injector import (
     inject
 )
 
-from ...db import Jobs
+from ...db.services.job_service import JobService
 
 
 jobs_bp = Blueprint('jobs', __name__)
 
-@inject(jobs=Jobs)
+@inject(job_service=JobService)
 @jobs_bp.route('/', methods=['GET'])
-def get_jobs(jobs: Jobs):
+def get_jobs(job_service: JobService):
     return jsonify({ 'jobs': [] })
 
-@inject(jobs=Jobs)
+@inject(job_service=JobService)
 @jobs_bp.route('/<string:job_id>', methods=['GET'])
-def get_job(job_id: str, jobs: Jobs):
-    return jsonify(jobs.get(job_id))
+def get_job(job_id: str, job_service: JobService):
+    return jsonify(job_service.get(job_id))
 
-@inject(jobs=Jobs)
+@inject(job_service=JobService)
 @jobs_bp.route('/', methods=['POST'])
-def create_job(jobs: Jobs):
+def create_job(job_service: JobService):
     if not request.json or not 'title' in request.json:
         abort(400)
     job = {

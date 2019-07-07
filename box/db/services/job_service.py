@@ -1,7 +1,6 @@
+from ...models import Job
 
-from ..models import Job
-
-class Jobs():
+class JobService():
     def __init__(self, jobs_service):
         self._jobs_service = jobs_service
 

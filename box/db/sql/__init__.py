@@ -2,8 +2,6 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
 from ...configuration import Configuration
-from .jobs import *
-
 
 db = None
 

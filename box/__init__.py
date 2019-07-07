@@ -14,7 +14,7 @@ from .tests import *
 app = create_app()
 
 # Register dependencies
-FlaskInjector(app=app, modules=[AuthModule, ConfigurationModule, DatabaseModule(app)])
+FlaskInjector(app=app, modules=[ConfigurationModule, DatabaseModule(app), AuthModule])
 
 # Box CLI Setup
 user_cli = AppGroup('user')

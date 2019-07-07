@@ -1,7 +1,6 @@
+from ...models import User
 
-from ..models import User
-
-class Users():
+class UserService():
     def __init__(self, users_service):
         self._users_service = users_service
 

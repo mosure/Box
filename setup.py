@@ -1,6 +1,5 @@
 from setuptools import setup
 
-
 setup(
     name='box',
     version='1.0',
@@ -15,7 +14,7 @@ setup(
         'flask',
         'flask-sqlalchemy',
         'flask-injector',
-        'flask-login'
+        'flask-security'
     ],
     zip_safe=False
 )
