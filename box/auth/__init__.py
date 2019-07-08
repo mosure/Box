@@ -2,7 +2,8 @@ from flask import Flask
 
 from injector import (
     Module,
-    singleton
+    singleton,
+    provider
 )
 
 from .auth import Auth
@@ -11,6 +12,6 @@ class AuthModule(Module):
     """Handle auth"""
 
     @singleton
-    @provides(Auth)
+    @provider(Auth)
     def provide_auth(self):
         return Auth()

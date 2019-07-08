@@ -1,8 +1,8 @@
 from ...models import Job
 
 class JobService():
-    def __init__(self, jobs_service):
-        self._jobs_service = jobs_service
+    def __init__(self, job_service):
+        self._job_service = job_service
 
     def get(self, id: str) -> Job:
-        return self._jobsService.get(id)
+        return self._jobService.get(id)

@@ -1,17 +1,24 @@
-from flask_login import (
-    LoginManager,
+from flask_security import (
+    Security,
+    SQLAlchemySessionUserDatastore
 )
 
-from .user import User
-from ..db import Users
+from injector import (
+    inject
+)
+
+from ..db.sql.models import (
+    SQLRole,
+    SQLUser
+)
+
+from ..db.sql import db
 
 class Auth:
     @inject(app=Flask)
     def __init__(self, app: Flask):
-        self.login_manager = LoginManager()
-        self.login_manager.init_app(app)
-
-    @inject(users=Users)
-    @login_manager.user_loader
-    def load_user(user_id, users: Users):
-        return Users.get(user_id)
+        self.datastore = SQLAlchemySessionUserDatastore(db, SQLUser, SQLRole)
+        self.security = Security(
+            app=app,
+            datastore=self.datastore
+        )
