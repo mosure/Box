@@ -1,11 +1,13 @@
 # Box
 
 # Setup
+Download and install neo4j desktop (https://neo4j.com/download/).
+
+Create a new graph with the password `local`
+
+Start the database
+
 Run `python setup.py develop` to link your local package to source (`python setup.py install` if you are only running the application).
-
-To setup environment variables, run `pip install -U python-dotenv` and load environment variables from `.flaskenv` and `.env` automatically.
-
-Alternatively, view required environment variables in `.flaskenv` and set them manually.
 
 To start the Flask server, run `flask run`.
 
