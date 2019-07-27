@@ -15,8 +15,8 @@ setup(
         'flask>=1.1.1',
         'flask-bcrypt',
         'flask-injector',
-        'flask-marshmallow',
-        'neo4j-driver',
+        'marshmallow',
+        'neo4j',
         'python-dotenv'
     ],
     zip_safe=False
