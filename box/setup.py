@@ -17,7 +17,8 @@ setup(
         'flask-injector',
         'marshmallow',
         'neo4j',
-        'python-dotenv'
+        'python-dotenv',
+        'flask_apispec'
     ],
     zip_safe=False
 )

@@ -1,6 +1,8 @@
 # Box
 
 # Setup
+Python3 is required.
+
 Download and install neo4j desktop (https://neo4j.com/download/).
 
 Create a new graph with the password `local`
@@ -12,6 +14,9 @@ Run `python setup.py develop` to link your local package to source (`python setu
 To start the Flask server, run `flask run`.
 
 To view the active routes, run `flask routes`.
+
+# Swagger UI
+View SwaggerUI at `localhost:5000/swagger-ui`.
 
 # Models
 

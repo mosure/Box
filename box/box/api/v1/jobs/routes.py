@@ -18,6 +18,25 @@ def get_jobs(job_service: JobService):
 
 @jobs_blueprint.route('/<string:job_id>', methods=['GET'])
 def get_job(job_id: str, job_service: JobService):
+    """ Get Individual Job Route
+    ---
+    get:
+        summary: Job endpoint.
+        description: Get a single job.
+        parameters:
+            - name: job_id
+              in: path
+              description: Job ID
+              type: string
+              required: true
+        responses:
+            200:
+                description: Job object to be returned.
+                schema: JobSchema
+            404:
+                description: Job not found.
+    """
+
     return jsonify(job_service.get(job_id))
 
 @jobs_blueprint.route('/', methods=['POST'])

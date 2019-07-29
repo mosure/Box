@@ -16,6 +16,7 @@ from .config import (
     TestingConfig
 )
 
+
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
 
@@ -53,3 +54,4 @@ app.cli.add_command(user_cli)
 def create_user(name):
     """TODO: Call `flask user create <name>` to create a user"""
     pass
+
